@@ -1,6 +1,8 @@
 {
   "app.js": "/static/js/bundle.js",
-  "app.5cc533bbf2c15276f8e6.map": "/5cc533bbf2c15276f8e6.map",
+  "app.dce1c3e2f266a22c5e8d.map": "/dce1c3e2f266a22c5e8d.map",
+  "vendors.js": "/static/js/vendors.chunk.js",
+  "vendors.a4c38a176e6e6be57386.map": "/a4c38a176e6e6be57386.map",
   "fonts/AntDesign.ttf": "/./fonts/AntDesign.ttf",
   "fonts/Entypo.ttf": "/./fonts/Entypo.ttf",
   "fonts/Feather.ttf": "/./fonts/Feather.ttf",

@@ -1,20 +1,8 @@
 import { Entypo, EvilIcons } from '@expo/vector-icons';
 import { observer, useObservable } from 'mobx-react-lite';
 import React, { useEffect, useRef } from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View
-} from 'react-native';
-import {
-  iOSColors,
-  materialColors,
-  systemWeights
-} from 'react-native-typography';
-import { VictoryLegend, VictoryPie } from 'victory-native';
-import api from './api';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { iOSColors, materialColors, systemWeights } from 'react-native-typography';
 import store from './store';
 
 const money = (x: number) => {
@@ -350,102 +338,102 @@ const styles = StyleSheet.create({
   }
 });
 
-const generateChart = (meta: any, drillTo: any) => {
-  const chartData = Object.keys(meta.current)
-    .map((key: any) => {
-      const item = meta.current[key];
-      const label = capitalize(
-        (item.name || '').toLowerCase().replace(/(.{25})..+/, '$1…')
-      );
+// const generateChart = (meta: any, drillTo: any) => {
+//   const chartData = Object.keys(meta.current)
+//     .map((key: any) => {
+//       const item = meta.current[key];
+//       const label = capitalize(
+//         (item.name || '').toLowerCase().replace(/(.{25})..+/, '$1…')
+//       );
 
-      const percent = (item[meta.chartKey] / meta[meta.chartKey]) * 100;
+//       const percent = (item[meta.chartKey] / meta[meta.chartKey]) * 100;
 
-      return {
-        x: percent > 1 ? `${label} ${Math.round(percent)}%` : '-',
-        y: item[meta.chartKey] || 0,
-        id: key
-      };
-    })
-    .filter((item: any) => item.x !== '-');
+//       return {
+//         x: percent > 1 ? `${label} ${Math.round(percent)}%` : '-',
+//         y: item[meta.chartKey] || 0,
+//         id: key
+//       };
+//     })
+//     .filter((item: any) => item.x !== '-');
 
-  const chartLegendData = chartData.map((item: any) => {
-    return {
-      name: item.x
-    };
-  });
-  const colorScale = ['tomato', 'orange', 'gold', '#1C5253', 'navy'];
-  return (
-    <View>
-      <Text
-        style={{
-          ...systemWeights.thin,
-          fontSize: 15,
-          marginBottom: -20
-        }}
-      >
-        Persentase {capitalize(meta.chartKey)}
-      </Text>
-      <VictoryPie
-        data={chartData}
-        events={[
-          {
-            target: 'data',
-            eventHandlers: {
-              onClick: () => {
-                return [
-                  {
-                    target: 'data',
-                    mutation: props => {
-                      const item = meta.current[props.datum.id];
-                      drillTo(props.datum.id, item);
-                    }
-                  }
-                ];
-              }
-            }
-          }
-        ]}
-        colorScale={colorScale}
-      />
-      <View style={{ flexDirection: 'row-reverse' }}>
-        <TouchableOpacity
-          style={{
-            borderRadius: 2,
-            marginBottom: 5,
-            marginTop: -20,
-            backgroundColor: '#ccc',
-            paddingHorizontal: 10,
-            paddingVertical: 3
-          }}
-          onPress={() => {
-            meta.chartKey = meta.chartKey === 'debet' ? 'kredit' : 'debet';
-          }}
-        >
-          <Text style={{ fontSize: 14 }}>
-            View {meta.chartKey === 'debet' ? 'Kredit' : 'Debet'}
-          </Text>
-        </TouchableOpacity>
-      </View>
-      <View
-        style={{
-          borderTopWidth: 1,
-          borderBottomWidth: 1,
-          borderColor: '#ccc',
-          marginHorizontal: -5,
-          paddingTop: 5
-        }}
-      >
-        <VictoryLegend
-          height={34 * Math.ceil(chartData.length / 2)}
-          itemsPerRow={2}
-          style={{
-            labels: { fontSize: 16 }
-          }}
-          orientation='horizontal'
-          colorScale={colorScale}
-          data={chartLegendData}
-        />
-      </View>
-    </View>
-  );
-};
+//   const chartLegendData = chartData.map((item: any) => {
+//     return {
+//       name: item.x
+//     };
+//   });
+//   const colorScale = ['tomato', 'orange', 'gold', '#1C5253', 'navy'];
+//   return (
+//     <View>
+//       <Text
+//         style={{
+//           ...systemWeights.thin,
+//           fontSize: 15,
+//           marginBottom: -20
+//         }}
+//       >
+//         Persentase {capitalize(meta.chartKey)}
+//       </Text>
+//       <VictoryPie
+//         data={chartData}
+//         events={[
+//           {
+//             target: 'data',
+//             eventHandlers: {
+//               onClick: () => {
+//                 return [
+//                   {
+//                     target: 'data',
+//                     mutation: props => {
+//                       const item = meta.current[props.datum.id];
+//                       drillTo(props.datum.id, item);
+//                     }
+//                   }
+//                 ];
+//               }
+//             }
+//           }
+//         ]}
+//         colorScale={colorScale}
+//       />
+//       <View style={{ flexDirection: 'row-reverse' }}>
+//         <TouchableOpacity
+//           style={{
+//             borderRadius: 2,
+//             marginBottom: 5,
+//             marginTop: -20,
+//             backgroundColor: '#ccc',
+//             paddingHorizontal: 10,
+//             paddingVertical: 3
+//           }}
+//           onPress={() => {
+//             meta.chartKey = meta.chartKey === 'debet' ? 'kredit' : 'debet';
+//           }}
+//         >
+//           <Text style={{ fontSize: 14 }}>
+//             View {meta.chartKey === 'debet' ? 'Kredit' : 'Debet'}
+//           </Text>
+//         </TouchableOpacity>
+//       </View>
+//       <View
+//         style={{
+//           borderTopWidth: 1,
+//           borderBottomWidth: 1,
+//           borderColor: '#ccc',
+//           marginHorizontal: -5,
+//           paddingTop: 5
+//         }}
+//       >
+//         <VictoryLegend
+//           height={34 * Math.ceil(chartData.length / 2)}
+//           itemsPerRow={2}
+//           style={{
+//             labels: { fontSize: 16 }
+//           }}
+//           orientation='horizontal'
+//           colorScale={colorScale}
+//           data={chartLegendData}
+//         />
+//       </View>
+//     </View>
+//   );
+// };
