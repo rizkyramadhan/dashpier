@@ -26,6 +26,7 @@ export default observer(({ navigation }: any) => {
     kredit: 0,
     trx: 0,
     chartKey: 'debet',
+    mode: 'total',
     drill: []
   });
   const scrollRef = useRef(null);
@@ -187,25 +188,51 @@ export default observer(({ navigation }: any) => {
               justifyContent: 'space-between'
             }}
           >
-            <View style={{ flexDirection: 'row' }}>
-              <Text style={{ fontSize: 11 }}>DEBET: </Text>
-              <Text
-                style={{ fontSize: 11, color: 'green', fontWeight: 'bold' }}
-              >
-                {money(meta.debet)}
-              </Text>
-            </View>
-
-            <View style={{ flexDirection: 'row' }}>
-              <Text style={{ fontSize: 11 }}>{meta.trx} trx</Text>
-            </View>
-
-            <View style={{ flexDirection: 'row' }}>
-              <Text style={{ fontSize: 11 }}>KREDIT: </Text>
-              <Text style={{ fontSize: 11, color: 'red', fontWeight: 'bold' }}>
-                {money(meta.kredit)}
-              </Text>
-            </View>
+            {meta.mode === 'total' ? (
+              (() => {
+                const diff = meta.debet - meta.kredit;
+                return (
+                  <>
+                    <View style={{ flexDirection: 'row' }}>
+                      <Text
+                        style={{
+                          fontSize: 11,
+                          color: diff > 0 ? 'green' : 'red',
+                          fontWeight: 'bold'
+                        }}
+                      >
+                        {money(diff > 0 ? meta.debet : meta.kredit)}
+                      </Text>
+                    </View>
+                    <View style={{ flexDirection: 'row' }}>
+                      <Text style={{ fontSize: 11 }}>{meta.trx} trx</Text>
+                    </View>
+                  </>
+                );
+              })()
+            ) : (
+              <>
+                <View style={{ flexDirection: 'row' }}>
+                  <Text style={{ fontSize: 11 }}>DEBET: </Text>
+                  <Text
+                    style={{ fontSize: 11, color: 'green', fontWeight: 'bold' }}
+                  >
+                    {money(meta.debet)}
+                  </Text>
+                </View>
+                <View style={{ flexDirection: 'row' }}>
+                  <Text style={{ fontSize: 11 }}>{meta.trx} trx</Text>
+                </View>
+                <View style={{ flexDirection: 'row' }}>
+                  <Text style={{ fontSize: 11 }}>KREDIT: </Text>
+                  <Text
+                    style={{ fontSize: 11, color: 'red', fontWeight: 'bold' }}
+                  >
+                    {money(meta.kredit)}
+                  </Text>
+                </View>
+              </>
+            )}
           </View>
         </View>
       </View>
@@ -221,15 +248,17 @@ export default observer(({ navigation }: any) => {
           {/* {generateChart(meta, drillTo)} */}
           {Object.keys(meta.current)
             .sort((id: any, oldid: any) => {
-              const item = meta.current[id];
-              const old = meta.current[oldid];
+              return id - oldid;
 
-              if (item.debet > old.debet) return -1;
-              else if (item.debet < old.debet) return 1;
+              // sort by debet credit
+              // const item = meta.current[id];
+              // const old = meta.current[oldid];
+              // if (item.debet > old.debet) return -1;
+              // else if (item.debet < old.debet) return 1;
 
-              if (item.kredit < old.kredit) return 1;
-              else if (item.kredit > old.kredit) return -1;
-              return 0;
+              // if (item.kredit < old.kredit) return 1;
+              // else if (item.kredit > old.kredit) return -1;
+              // return 0;
 
               // sort by name alphabetically
               // return ('' + item.name).localeCompare(old.name);
@@ -248,43 +277,84 @@ export default observer(({ navigation }: any) => {
                       drillTo(id, item);
                     }}
                   >
-                    <Text style={styles.itemTitle}>
-                      {item.name.toLowerCase()}
-                    </Text>
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        alignItems: 'center'
+                      }}
+                    >
+                      <Text style={styles.itemTitle}>
+                        {item.name.toLowerCase()}
+                      </Text>
+                      <Text style={styles.amtTitle}>[{id}]</Text>
+                    </View>
                     <View
                       style={{
                         flexDirection: 'row',
                         justifyContent: 'space-between'
                       }}
                     >
-                      <View style={{ flex: 1 }}>
-                        <Text style={styles.amtTitle}>DEBET</Text>
-                        <Text
-                          style={{
-                            fontSize: 13,
-                            ...systemWeights.semibold,
-                            ...(item.debet > 0 ? { color: 'green' } : {})
-                          }}
-                        >
-                          {money(item.debet || 0)}
-                        </Text>
-                      </View>
+                      {meta.mode === 'total' ? (
+                        (() => {
+                          const diff = item.debet - item.kredit;
+                          return (
+                            <>
+                              <View style={{ flexDirection: 'row' }}>
+                                <Text
+                                  style={{
+                                    fontSize: 11,
+                                    color: diff > 0 ? 'green' : 'red',
+                                    fontWeight: 'bold'
+                                  }}
+                                >
+                                  {money(diff > 0 ? meta.debet : meta.kredit)}
+                                </Text>
+                              </View>
+                              <View style={{ flexDirection: 'row' }}>
+                                <Text style={{ fontSize: 11 }}>
+                                  {meta.trx} trx
+                                </Text>
+                              </View>
+                            </>
+                          );
+                        })()
+                      ) : (
+                        <>
+                          <View style={{ flex: 1 }}>
+                            <Text style={styles.amtTitle}>DEBET</Text>
+                            <Text
+                              style={{
+                                fontSize: 13,
+                                ...systemWeights.semibold,
+                                ...(item.debet > 0 ? { color: 'green' } : {})
+                              }}
+                            >
+                              {money(item.debet || 0)}
+                            </Text>
+                          </View>
 
-                      <View style={{ flexDirection: 'row' }}>
-                        <Text style={{ fontSize: 11 }}>{item.count} trx</Text>
-                      </View>
-                      <View style={{ flex: 1, alignItems: 'flex-end' }}>
-                        <Text style={styles.amtTitle}>KREDIT</Text>
-                        <Text
-                          style={{
-                            fontSize: 13,
-                            ...systemWeights.semibold,
-                            ...(item.kredit > 0 ? { color: iOSColors.red } : {})
-                          }}
-                        >
-                          {money(item.kredit || 0)}
-                        </Text>
-                      </View>
+                          <View style={{ flexDirection: 'row' }}>
+                            <Text style={{ fontSize: 11 }}>
+                              {item.count} trx
+                            </Text>
+                          </View>
+                          <View style={{ flex: 1, alignItems: 'flex-end' }}>
+                            <Text style={styles.amtTitle}>KREDIT</Text>
+                            <Text
+                              style={{
+                                fontSize: 13,
+                                ...systemWeights.semibold,
+                                ...(item.kredit > 0
+                                  ? { color: iOSColors.red }
+                                  : {})
+                              }}
+                            >
+                              {money(item.kredit || 0)}
+                            </Text>
+                          </View>
+                        </>
+                      )}
                     </View>
                   </TouchableOpacity>
                   <View

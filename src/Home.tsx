@@ -64,7 +64,7 @@ export default observer(({ navigation }: any) => {
           }}
           style={styles.itemContainer}
         >
-          <Text style={styles.itemTitle}>Raw</Text>
+          <Text style={styles.itemTitle}>Trial Balance</Text>
           <Text style={styles.subTitle}>All Charts of Accounts</Text>
         </TouchableOpacity>
       </ScrollView>
