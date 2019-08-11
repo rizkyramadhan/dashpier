@@ -1,16 +1,22 @@
 import { Entypo, EvilIcons } from '@expo/vector-icons';
 import { observer, useObservable } from 'mobx-react-lite';
 import React, { useEffect, useRef } from 'react';
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { iOSColors, materialColors, systemWeights } from 'react-native-typography';
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from 'react-native';
+import {
+  iOSColors,
+  materialColors,
+  systemWeights
+} from 'react-native-typography';
 import store from './store';
 
 const money = (x: number) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-};
-const capitalize = s => {
-  if (typeof s !== 'string') return '';
-  return s.charAt(0).toUpperCase() + s.slice(1);
 };
 
 export default observer(({ navigation }: any) => {
@@ -339,6 +345,10 @@ const styles = StyleSheet.create({
 });
 
 // const generateChart = (meta: any, drillTo: any) => {
+// const capitalize = s => {
+//   if (typeof s !== 'string') return '';
+//   return s.charAt(0).toUpperCase() + s.slice(1);
+// };
 //   const chartData = Object.keys(meta.current)
 //     .map((key: any) => {
 //       const item = meta.current[key];
