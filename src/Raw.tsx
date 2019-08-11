@@ -308,12 +308,12 @@ export default observer(({ navigation }: any) => {
                                     fontWeight: 'bold'
                                   }}
                                 >
-                                  {money(diff > 0 ? meta.debet : meta.kredit)}
+                                  {money(diff > 0 ? item.debet : item.kredit)}
                                 </Text>
                               </View>
                               <View style={{ flexDirection: 'row' }}>
                                 <Text style={{ fontSize: 11 }}>
-                                  {meta.trx} trx
+                                  {item.count} trx
                                 </Text>
                               </View>
                             </>

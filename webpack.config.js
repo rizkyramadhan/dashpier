@@ -6,16 +6,17 @@ module.exports = async function(env, argv) {
   config.resolve.alias['victory-native$'] = 'victory';
   config.mode = 'production';
 
-  // config.optimization = {
-  //   splitChunks: {
-  //     cacheGroups: {
-  //       commons: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         name: 'vendors',
-  //         chunks: 'all'
-  //       }
-  //     }
-  //   }
-  // };
+  config.optimization = {
+    splitChunks: {
+      chunks: 'all'
+      // cacheGroups: {
+      //   commons: {
+      //     test: /[\\/]node_modules[\\/]/,
+      //     name: 'vendors',
+      //     chunks: 'all'
+      //   }
+      // }
+    }
+  };
   return config;
 };
