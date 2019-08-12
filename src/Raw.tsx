@@ -16,7 +16,7 @@ import {
 import store from './store';
 
 const money = (x: number) => {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  return Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 };
 
 export default observer(({ navigation }: any) => {
@@ -46,7 +46,7 @@ export default observer(({ navigation }: any) => {
     meta.kredit = item.kredit || 0;
     meta.trx = item.count || 0;
     meta.current = item.childs;
-    scrollRef.current.scrollTo(0);
+    scrollRef.current.scrollTo({ x: 0, y: 0, animated: true });
   };
 
   const calcDebetKredit = () => {
@@ -112,7 +112,7 @@ export default observer(({ navigation }: any) => {
               onPress={() => {
                 meta.drill = [];
                 meta.current = store.list;
-                scrollRef.current.scrollTo(0);
+                scrollRef.current.scrollTo({ x: 0, y: 0, animated: true });
                 calcDebetKredit();
               }}
               style={styles.drillItem}
@@ -156,7 +156,7 @@ export default observer(({ navigation }: any) => {
                         meta.current = meta.current[item.id].childs;
                       }
                     }
-                    scrollRef.current.scrollTo(0);
+                    scrollRef.current.scrollTo({ x: 0, y: 0, animated: true });
                   }}
                 >
                   <Text style={{ textTransform: 'capitalize' }}>
@@ -175,9 +175,19 @@ export default observer(({ navigation }: any) => {
         </View>
         <View>
           {meta.drill.length > 0 && (
-            <View>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                paddingRight: 5
+              }}
+            >
               <Text style={styles.currentItemTitle}>
                 {meta.drill[meta.drill.length - 1].name.toLowerCase()}
+              </Text>
+              <Text style={styles.amtTitle}>
+                [{meta.drill[meta.drill.length - 1].id}]
               </Text>
             </View>
           )}
@@ -185,6 +195,7 @@ export default observer(({ navigation }: any) => {
             style={{
               flexDirection: 'row',
               padding: 5,
+              alignItems: 'center',
               justifyContent: 'space-between'
             }}
           >
@@ -204,9 +215,33 @@ export default observer(({ navigation }: any) => {
                         {money(diff > 0 ? meta.debet : meta.kredit)}
                       </Text>
                     </View>
-                    <View style={{ flexDirection: 'row' }}>
+                    <TouchableOpacity
+                      style={{
+                        flexDirection: 'row',
+                        borderTopLeftRadius: 3,
+                        borderBottomLeftRadius: 3,
+                        borderWidth: 1,
+                        borderColor: '#ccc',
+                        borderRightWidth: 0,
+                        paddingHorizontal: 10,
+                        backgroundColor: '#ececeb',
+                        marginRight: -5,
+                        alignItems: 'center'
+                      }}
+                      onPress={() => {
+                        navigation.navigate('Trx', {
+                          id: meta.drill[meta.drill.length - 1].id,
+                          name: meta.drill[meta.drill.length - 1].name
+                        });
+                      }}
+                    >
                       <Text style={{ fontSize: 11 }}>{meta.trx} trx</Text>
-                    </View>
+                      <EvilIcons
+                        name='chevron-right'
+                        size={20}
+                        style={{ marginRight: -8 }}
+                      />
+                    </TouchableOpacity>
                   </>
                 );
               })()
@@ -297,7 +332,7 @@ export default observer(({ navigation }: any) => {
                     >
                       {meta.mode === 'total' ? (
                         (() => {
-                          const diff = item.debet - item.kredit;
+                          const diff = (item.debet || 0) - (item.kredit || 0);
                           return (
                             <>
                               <View style={{ flexDirection: 'row' }}>
@@ -308,12 +343,16 @@ export default observer(({ navigation }: any) => {
                                     fontWeight: 'bold'
                                   }}
                                 >
-                                  {money(diff > 0 ? item.debet : item.kredit)}
+                                  {money(
+                                    diff > 0
+                                      ? item.debet || 0
+                                      : item.kredit || 0
+                                  )}
                                 </Text>
                               </View>
                               <View style={{ flexDirection: 'row' }}>
                                 <Text style={{ fontSize: 11 }}>
-                                  {item.count} trx
+                                  {item.count || 0} trx
                                 </Text>
                               </View>
                             </>
