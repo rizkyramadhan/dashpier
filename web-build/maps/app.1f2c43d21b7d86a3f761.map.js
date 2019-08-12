@@ -1,0 +1,1 @@
+{"version":3,"file":"bundles/app.1f2c43d21b7d86a3f761.min.js","sources":["webpack:////media/riz/data/Projects/dashpier/src/store.tsx"],"sourcesContent":["import { observable } from 'mobx';\n\nexport default observable({\n  list: {}\n});\n"],"mappings":"AAEA","sourceRoot":""}

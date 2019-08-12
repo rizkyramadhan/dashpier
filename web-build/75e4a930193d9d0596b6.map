@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/npm.expo-file-system.chunk.js","sources":["/media/riz/data/Projects/src/ExponentFileSystem.web.ts"],"sourcesContent":["import ExponentFileSystemShim from './ExponentFileSystemShim';\nexport default ExponentFileSystemShim;\n"],"mappings":";;;;;;;;;;;;AACA","sourceRoot":""}

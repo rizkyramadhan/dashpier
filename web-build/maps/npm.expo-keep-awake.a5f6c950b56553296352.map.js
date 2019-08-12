@@ -1,0 +1,1 @@
+{"version":3,"file":"bundles/npm.expo-keep-awake.a5f6c950b56553296352.min.js","sources":["webpack:///../src/ExpoKeepAwake.web.ts"],"sourcesContent":["export default {\n  activate() {},\n  deactivate() {},\n};\n"],"mappings":"AAAA","sourceRoot":""}
