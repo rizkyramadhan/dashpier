@@ -1,1 +1,0 @@
-{"version":3,"file":"bundles/npm.expo-file-system.75e4a930193d9d0596b6.min.js","sources":["webpack:///../src/ExponentFileSystem.web.ts"],"sourcesContent":["import ExponentFileSystemShim from './ExponentFileSystemShim';\nexport default ExponentFileSystemShim;\n"],"mappings":"AACA","sourceRoot":""}

@@ -1,9 +1,5 @@
 const createExpoWebpackConfigAsync = require('@expo/webpack-config');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const path = require('path');
-
 module.exports = async function(env, argv) {
   const config = await createExpoWebpackConfigAsync(env, argv);
   config.resolve.alias['victory-native$'] = 'victory';
@@ -11,20 +7,10 @@ module.exports = async function(env, argv) {
     app: [__dirname + '/node_modules/expo/AppEntry.js']
   };
 
-  config.output = {
-    path: path.resolve(__dirname, 'web-build'),
-    filename: 'bundles/[name].[chunkhash].min.js',
-    sourceMapFilename: 'maps/[name].[chunkhash].map.js'
-  };
-
   config.devServer = {};
   config.mode = 'production';
-  config.plugins = [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin(),
-    new webpack.HashedModuleIdsPlugin() // so that file hashes don't change unexpectedly
-  ];
-
+  delete config.devtool;
+  config.plugins.push(new CleanWebpackPlugin());
   config.optimization = {
     runtimeChunk: 'single',
     splitChunks: {
