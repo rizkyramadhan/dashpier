@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{"64a3":
+(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{"64a3":
 /*!************************************************************************************!*\
   !*** /media/riz/data/Projects/dashpier/node_modules/create-react-class/factory.js ***!
   \************************************************************************************/
@@ -23,4 +23,4 @@
 /*! no static exports found */
 /*! all exports used */
 /*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(t,e,n){"use strict";t.exports={}}}]);
-//# sourceMappingURL=../../37a29e9c9f4f85f06fe7.map
+//# sourceMappingURL=../../5ca06990274a9bee6959.map

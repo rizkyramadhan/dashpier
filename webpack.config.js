@@ -1,8 +1,13 @@
 const createExpoWebpackConfigAsync = require('@expo/webpack-config');
 const webpack = require('webpack');
+const path = require('path');
 module.exports = async function(env, argv) {
   const config = await createExpoWebpackConfigAsync(env, argv);
   config.resolve.alias['victory-native$'] = 'victory';
+  config.entry = {
+    main: path.resolve(__dirname, './App.tsx')
+  };
+  config.devServer = {};
   config.mode = 'production';
   config.plugins = [
     new webpack.HashedModuleIdsPlugin() // so that file hashes don't change unexpectedly

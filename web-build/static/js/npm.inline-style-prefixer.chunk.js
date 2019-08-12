@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[30],{"96df":
+(window.webpackJsonp=window.webpackJsonp||[]).push([[22],{"96df":
 /*!**********************************************************************************************************!*\
   !*** /media/riz/data/Projects/dashpier/node_modules/inline-style-prefixer/lib/utils/addNewValuesOnly.js ***!
   \**********************************************************************************************************/
@@ -107,4 +107,4 @@
 /*! no static exports found */
 /*! exports used: default */
 /*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function(e,t,n){Object.prototype.hasOwnProperty.call(i,e)&&(n[i[e]]=r[t]||t);if("flex"===e){if(Object.prototype.hasOwnProperty.call(u,t))return void(n.msFlex=u[t]);if(o.test(t))return void(n.msFlex=t+" 1 0%");var f=t.split(/\s/);switch(f.length){case 1:return void(n.msFlex="1 1 "+t);case 2:return void(o.test(f[1])?n.msFlex=f[0]+" "+f[1]+" 0%":n.msFlex=f[0]+" 1 "+f[1]);default:n.msFlex=t}}};var r={"space-around":"distribute","space-between":"justify","flex-start":"start","flex-end":"end"},i={alignContent:"msFlexLinePack",alignSelf:"msFlexItemAlign",alignItems:"msFlexAlign",justifyContent:"msFlexPack",order:"msFlexOrder",flexGrow:"msFlexPositive",flexShrink:"msFlexNegative",flexBasis:"msFlexPreferredSize"},u={auto:"1 1 auto",inherit:"inherit",initial:"0 1 auto",none:"0 0 auto",unset:"unset"},o=/^\d+(\.\d+)?$/}}]);
-//# sourceMappingURL=../../fca0718fbb77d0091d00.map
+//# sourceMappingURL=../../a3af1a35001cbfc5b580.map

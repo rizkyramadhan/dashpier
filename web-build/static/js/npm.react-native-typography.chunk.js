@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[54],{"7Bsp":
+(window.webpackJsonp=window.webpackJsonp||[]).push([[43],{"7Bsp":
 /*!************************************************************************************************************!*\
   !*** /media/riz/data/Projects/dashpier/node_modules/react-native-typography/src/helpers/materialColors.js ***!
   \************************************************************************************************************/
@@ -14,4 +14,4 @@
   \***************************************************************************************************************************/
 /*! exports provided: default */
 /*! exports used: default */function(t,i,e){"use strict";var a={thin:{fontFamily:"System",fontWeight:"100"},ultraLight:{fontFamily:"System",fontWeight:"200"},light:{fontFamily:"System",fontWeight:"300"},regular:{fontFamily:"System",fontWeight:"400"},medium:{fontFamily:"System",fontWeight:"500"},semibold:{fontFamily:"System",fontWeight:"600"},bold:{fontFamily:"System",fontWeight:"700"},heavy:{fontFamily:"System",fontWeight:"800"},black:{fontFamily:"System",fontWeight:"900"}},n={thin:a.thin,light:a.light,regular:a.regular,semibold:a.semibold,bold:a.bold};i.a=n}}]);
-//# sourceMappingURL=../../e7d12d68260805ae8ff5.map
+//# sourceMappingURL=../../93ffcdd22345c30ecd5b.map

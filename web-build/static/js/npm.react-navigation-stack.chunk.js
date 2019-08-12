@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[58],{"+b8t":
+(window.webpackJsonp=window.webpackJsonp||[]).push([[47],{"+b8t":
 /*!**************************************************************************************************************!*\
   !*** /media/riz/data/Projects/dashpier/node_modules/react-navigation-stack/lib/module/index.js + 22 modules ***!
   \**************************************************************************************************************/
@@ -45,4 +45,4 @@
 /*! no static exports found */
 /*! all exports used */
 /*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(e,t,n){e.exports=n.p+"static/media/back-icon-mask.6165c9d7.png"}}]);
-//# sourceMappingURL=../../fb0ae7df579a9c9c67b5.map
+//# sourceMappingURL=../../dd33e7af6554d5ed4728.map
