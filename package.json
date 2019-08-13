@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "dayjs": "^1.8.15",
     "expo": "^34.0.1",
     "frisbee": "^3.0.2",
     "mobx": "^5.13.0",

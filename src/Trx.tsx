@@ -1,22 +1,22 @@
-import { Entypo, EvilIcons } from '@expo/vector-icons';
+import { EvilIcons } from '@expo/vector-icons';
 import { observer, useObservable } from 'mobx-react-lite';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import {
-  ScrollView,
+  FlatList,
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
-  FlatList
+  View
 } from 'react-native';
 import {
   iOSColors,
   materialColors,
   systemWeights
 } from 'react-native-typography';
-import store from './store';
 import api from './api';
-import { toJS } from 'mobx';
+
+import day from 'dayjs';
+import Title from './Title';
 
 const money = (x: number) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
@@ -41,23 +41,7 @@ export default observer(({ navigation }: any) => {
 
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          paddingHorizontal: 10
-        }}
-      >
-        <TouchableOpacity
-          onPress={() => {
-            navigation.pop();
-          }}
-          style={{ marginLeft: -15, marginRight: -10 }}
-        >
-          <EvilIcons name='chevron-left' size={64} />
-        </TouchableOpacity>
-        <Text style={styles.title}>{name}</Text>
-      </View>
+      <Title navigation={navigation} text={name} />
 
       <View style={{ alignItems: 'stretch', flex: 1 }}>
         {meta.loading ? (
@@ -73,7 +57,8 @@ export default observer(({ navigation }: any) => {
                   borderTopWidth: 1,
                   borderBottomWidth: 1,
                   borderColor: '#ccc',
-                  padding: 10
+                  padding: 10,
+                  marginHorizontal: 3
                 }}
               >
                 <Text style={styles.itemTitle}>{item.desc}</Text>
@@ -86,7 +71,9 @@ export default observer(({ navigation }: any) => {
                   }}
                 >
                   <Text style={styles.amtTitle}>{item.docno}</Text>
-                  <Text style={styles.amtTitle}>{item.date}</Text>
+                  <Text style={styles.amtTitle}>
+                    {day(item.date).format('DD MMM YYYY HH:ii')}
+                  </Text>
                 </View>
                 <View style={{ flexDirection: 'row', paddingTop: 5 }}>
                   <View style={{ flex: 1 }}>

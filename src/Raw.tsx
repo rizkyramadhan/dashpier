@@ -14,9 +14,12 @@ import {
   systemWeights
 } from 'react-native-typography';
 import store from './store';
+import Title from './Title';
 
 const money = (x: number) => {
-  return Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  return Math.round(x)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 };
 
 export default observer(({ navigation }: any) => {
@@ -66,23 +69,7 @@ export default observer(({ navigation }: any) => {
 
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          paddingHorizontal: 10
-        }}
-      >
-        <TouchableOpacity
-          onPress={() => {
-            navigation.pop();
-          }}
-          style={{ marginLeft: -15, marginRight: -10 }}
-        >
-          <EvilIcons name='chevron-left' size={64} />
-        </TouchableOpacity>
-        <Text style={styles.title}>Dashpier</Text>
-      </View>
+      <Title navigation={navigation} />
 
       <View
         style={{
@@ -215,33 +202,37 @@ export default observer(({ navigation }: any) => {
                         {money(diff > 0 ? meta.debet : meta.kredit)}
                       </Text>
                     </View>
-                    <TouchableOpacity
-                      style={{
-                        flexDirection: 'row',
-                        borderTopLeftRadius: 3,
-                        borderBottomLeftRadius: 3,
-                        borderWidth: 1,
-                        borderColor: '#ccc',
-                        borderRightWidth: 0,
-                        paddingHorizontal: 10,
-                        backgroundColor: '#ececeb',
-                        marginRight: -5,
-                        alignItems: 'center'
-                      }}
-                      onPress={() => {
-                        navigation.navigate('Trx', {
-                          id: meta.drill[meta.drill.length - 1].id,
-                          name: meta.drill[meta.drill.length - 1].name
-                        });
-                      }}
-                    >
+                    {meta.drill.length === 0 ? (
                       <Text style={{ fontSize: 11 }}>{meta.trx} trx</Text>
-                      <EvilIcons
-                        name='chevron-right'
-                        size={20}
-                        style={{ marginRight: -8 }}
-                      />
-                    </TouchableOpacity>
+                    ) : (
+                      <TouchableOpacity
+                        style={{
+                          flexDirection: 'row',
+                          borderTopLeftRadius: 3,
+                          borderBottomLeftRadius: 3,
+                          borderWidth: 1,
+                          borderColor: '#ccc',
+                          borderRightWidth: 0,
+                          paddingHorizontal: 10,
+                          backgroundColor: '#ececeb',
+                          marginRight: -5,
+                          alignItems: 'center'
+                        }}
+                        onPress={() => {
+                          navigation.navigate('Trx', {
+                            id: meta.drill[meta.drill.length - 1].id,
+                            name: meta.drill[meta.drill.length - 1].name
+                          });
+                        }}
+                      >
+                        <Text style={{ fontSize: 11 }}>{meta.trx} trx</Text>
+                        <EvilIcons
+                          name='chevron-right'
+                          size={20}
+                          style={{ marginRight: -8 }}
+                        />
+                      </TouchableOpacity>
+                    )}
                   </>
                 );
               })()
@@ -425,12 +416,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     justifyContent: 'flex-start'
-  },
-  title: {
-    ...systemWeights.light,
-    fontSize: 35,
-    color: iOSColors.black,
-    marginVertical: 15
   },
   currentItemTitle: {
     ...systemWeights.light,

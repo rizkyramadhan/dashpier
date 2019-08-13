@@ -40,7 +40,7 @@ export default observer(({ navigation }: any) => {
       <ScrollView>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('Raw');
+            navigation.navigate('Balance');
           }}
           style={styles.itemContainer}
         >
@@ -50,7 +50,7 @@ export default observer(({ navigation }: any) => {
 
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('Raw');
+            navigation.navigate('Pnl');
           }}
           style={styles.itemContainer}
         >
