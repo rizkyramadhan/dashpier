@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import Title from '../components/Title';
 import { money } from '../misc/util';
 import { systemWeights, iOSUIKit } from 'react-native-typography';
@@ -39,17 +39,23 @@ export default observer(({ navigation }: any) => {
           {Object.keys(store.cbohList[0].childs).map((key: any, k: number) => {
             const item = store.cbohList[0].childs[key];
             return (
-              <View
+              <TouchableOpacity
                 key={k}
                 style={{
                   flexDirection: 'row',
                   alignItems: 'center',
                   justifyContent: 'space-between'
                 }}
+                onPress={() => {
+                  navigation.navigate('Trx', {
+                    id: key,
+                    name: item.name
+                  });
+                }}
               >
                 <Text>{item.name}</Text>
                 <Text>{money(item.debet, false)}</Text>
-              </View>
+              </TouchableOpacity>
             );
           })}
         </View>
@@ -67,17 +73,23 @@ export default observer(({ navigation }: any) => {
           {Object.keys(store.cbohList[1].childs).map((key: any, k: number) => {
             const item = store.cbohList[1].childs[key];
             return (
-              <View
+              <TouchableOpacity
                 key={k}
                 style={{
                   flexDirection: 'row',
                   alignItems: 'center',
                   justifyContent: 'space-between'
                 }}
+                onPress={() => {
+                  navigation.navigate('Trx', {
+                    id: key,
+                    name: item.name
+                  });
+                }}
               >
                 <Text>{item.name}</Text>
                 <Text>{money(item.debet, false)}</Text>
-              </View>
+              </TouchableOpacity>
             );
           })}
         </View>
