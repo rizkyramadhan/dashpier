@@ -13,33 +13,29 @@ import {
   materialColors,
   systemWeights
 } from 'react-native-typography';
-import store from './store';
-import Title from './Title';
-
-const money = (x: number) => {
-  return Math.round(x)
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-};
+import store from '../misc/store';
+import Title from '../components/Title';
+import { money } from '../misc/util';
+import { toJS } from 'mobx';
 
 export default observer(({ navigation }: any) => {
   const meta = useObservable({
-    current: {},
+    current: {} as any,
     debet: 0,
     kredit: 0,
     trx: 0,
     chartKey: 'debet',
     mode: 'total',
-    drill: []
+    drill: [] as any[]
   });
-  const scrollRef = useRef(null);
+  const scrollRef = useRef(null as any);
 
   useEffect(() => {
-    meta.current = store.list;
+    meta.current = toJS(store.list);
     calcDebetKredit();
   }, []);
 
-  const drillTo = (id, item: any) => {
+  const drillTo = (id: string, item: any) => {
     meta.drill.push({
       id: id,
       name: item.name

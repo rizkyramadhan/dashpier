@@ -1,22 +1,11 @@
-import { EvilIcons } from '@expo/vector-icons';
+import day from 'dayjs';
 import { observer, useObservable } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
-import {
-  FlatList,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View
-} from 'react-native';
-import {
-  iOSColors,
-  materialColors,
-  systemWeights
-} from 'react-native-typography';
-import api from './api';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { iOSColors, materialColors, systemWeights } from 'react-native-typography';
+import api from '../misc/api';
+import Title from '../components/Title';
 
-import day from 'dayjs';
-import Title from './Title';
 
 const money = (x: number) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
