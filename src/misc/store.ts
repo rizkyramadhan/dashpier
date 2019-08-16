@@ -67,6 +67,12 @@ export const actions = {
     store.list = (await api.get('/get' + org)).body;
     store.orglist = (await api.get('/org')).body;
     store.cbohList = [this.find('30621'), this.find('30626')];
-    store.cboh = _.sumBy(store.cbohList, 'debet') || 0;
+    store.cboh =
+      _.sumBy(store.cbohList, (item: any) => {
+        const a = item.debet - item.kredit;
+        if (a > 0) return item.debet;
+        return item.kredit;
+      }) || 0;
+      console.log(store.cboh);
   }
 };
