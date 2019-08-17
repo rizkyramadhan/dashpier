@@ -20,7 +20,7 @@ export default observer(({ navigation }: any) => {
             ...systemWeights.light
           }}
         >
-          {money(store.cboh)}
+          {money(store.cboh.total)}
         </Text>
         <Org style={{ marginTop: 10 }} />
       </View>
@@ -33,11 +33,11 @@ export default observer(({ navigation }: any) => {
           }}
         >
           <Text style={iOSUIKit.title3Emphasized}>Cash Account</Text>
-          <Text>{money(store.cbohList[0].debet -store.cbohList[0].kredit , false)}</Text>
+          <Text>{money(store.cboh.list[0].debet - store.cboh.list[0].kredit, false)}</Text>
         </View>
         <View style={{ padding: 10 }}>
-          {Object.keys(store.cbohList[0].childs).map((key: any, k: number) => {
-            const item = store.cbohList[0].childs[key];
+          {Object.keys(store.cboh.list[0].childs).map((key: any, k: number) => {
+            const item = store.cboh.list[0].childs[key];
 
             if (item.debet - item.kredit === 0) return null;
             return (
@@ -69,11 +69,11 @@ export default observer(({ navigation }: any) => {
           }}
         >
           <Text style={iOSUIKit.title3Emphasized}>Bank Account</Text>
-          <Text>{money(store.cbohList[1].debet - store.cbohList[1].kredit , false)}</Text>
+          <Text>{money(store.cboh.list[1].debet - store.cboh.list[1].kredit, false)}</Text>
         </View>
         <View style={{ padding: 10 }}>
-          {Object.keys(store.cbohList[1].childs).map((key: any, k: number) => {
-            const item = store.cbohList[1].childs[key];
+          {Object.keys(store.cboh.list[1].childs).map((key: any, k: number) => {
+            const item = store.cboh.list[1].childs[key];
             if (item.debet - item.kredit === 0) return null;
             return (
               <TouchableOpacity

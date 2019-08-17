@@ -6,9 +6,14 @@ const store = observable({
   org: '',
   orglist: [] as any[],
   list: {} as any,
-  cboh: 0,
-  cbohList: [] as any[],
-  recv: 275000000,
+  cboh: {
+    total: 0,
+    list: [] as any[]
+  },
+  recv: {
+    total: 0,
+    list: [] as any
+  },
   payb: 82500000,
   income: {
     rev: {
@@ -54,7 +59,7 @@ export const actions = {
     const found = find(id, toJS(store.list));
     if (found) {
       return JSON.parse(
-        JSON.stringify(found, function(key, value) {
+        JSON.stringify(found, function (key, value) {
           if (key === 'parent') return value.id;
           return value;
         })
@@ -63,12 +68,23 @@ export const actions = {
     return false;
   },
   async reload() {
+    const client_id = 30006;
+    const cboh = [30621, 30626];
+
     const org: string = store.org ? `?org=${store.org}` : ``;
+    await api.get('/refresh?cid=' + client_id)
+
     store.list = (await api.get('/get' + org)).body;
     store.orglist = (await api.get('/org')).body;
-    store.cbohList = [this.find('30621'), this.find('30626')];
-    store.cboh =
-      _.sumBy(store.cbohList, (item: any) => {
+    store.cboh.list = [this.find('30621'), this.find('30626')];
+    store.cboh.total =
+      _.sumBy(store.cboh.list, (item: any) => {
+        return item.debet - item.kredit;
+      }) || 0;
+
+    store.cboh.list = [this.find(cboh[0].toString()), this.find(cboh[0].toString())];
+    store.cboh.total =
+      _.sumBy(store.cboh.list, (item: any) => {
         return item.debet - item.kredit;
       }) || 0;
   }

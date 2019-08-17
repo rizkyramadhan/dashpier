@@ -45,7 +45,7 @@ export default observer(({ navigation }: any) => {
           style={styles.itemContainer}
         >
           <Text style={styles.itemTitle}>Cash &amp; Bank on Hand </Text>
-          <Text style={styles.subTitle}>{money(store.cboh)}</Text>
+          <Text style={styles.subTitle}>{money(store.cboh.total)}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -55,7 +55,7 @@ export default observer(({ navigation }: any) => {
           style={styles.itemContainer}
         >
           <Text style={styles.itemTitle}>Receivables</Text>
-          <Text style={styles.subTitle}>{money(store.recv)}</Text>
+          <Text style={styles.subTitle}>{money(store.recv.total)}</Text>
           <Text style={styles.subTitle}>Open Invoice</Text>
         </TouchableOpacity>
 

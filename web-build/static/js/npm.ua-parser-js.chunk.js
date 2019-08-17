@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[55],{211:
+(window.webpackJsonp=window.webpackJsonp||[]).push([[55],{212:
 /*!******************************************************************************!*\
   !*** /home/riz/Projects/dashpier/node_modules/ua-parser-js/src/ua-parser.js ***!
   \******************************************************************************/
