@@ -195,7 +195,7 @@ export default observer(({ navigation }: any) => {
                           fontWeight: 'bold'
                         }}
                       >
-                        {money(diff > 0 ? meta.debet : meta.kredit)}
+                        {money(diff)}
                       </Text>
                     </View>
                     {meta.drill.length === 0 ? (
@@ -309,7 +309,7 @@ export default observer(({ navigation }: any) => {
                       <Text style={styles.itemTitle}>
                         {item.name.toLowerCase()}
                       </Text>
-                      <Text style={styles.amtTitle}>[{id}]</Text>
+                      <Text style={styles.amtTitle}>[{item.key}]</Text>
                     </View>
                     <View
                       style={{
@@ -331,9 +331,7 @@ export default observer(({ navigation }: any) => {
                                   }}
                                 >
                                   {money(
-                                    diff > 0
-                                      ? item.debet || 0
-                                      : item.kredit || 0
+                                    diff 
                                   )}
                                 </Text>
                               </View>

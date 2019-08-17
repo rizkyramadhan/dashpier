@@ -69,10 +69,7 @@ export const actions = {
     store.cbohList = [this.find('30621'), this.find('30626')];
     store.cboh =
       _.sumBy(store.cbohList, (item: any) => {
-        const a = item.debet - item.kredit;
-        if (a > 0) return item.debet;
-        return item.kredit;
+        return item.debet - item.kredit;
       }) || 0;
-      console.log(store.cboh);
   }
 };

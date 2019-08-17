@@ -33,11 +33,13 @@ export default observer(({ navigation }: any) => {
           }}
         >
           <Text style={iOSUIKit.title3Emphasized}>Cash Account</Text>
-          <Text>{money(store.cbohList[0].debet, false)}</Text>
+          <Text>{money(store.cbohList[0].debet -store.cbohList[0].kredit , false)}</Text>
         </View>
         <View style={{ padding: 10 }}>
           {Object.keys(store.cbohList[0].childs).map((key: any, k: number) => {
             const item = store.cbohList[0].childs[key];
+
+            if (item.debet - item.kredit === 0) return null;
             return (
               <TouchableOpacity
                 key={k}
@@ -54,7 +56,7 @@ export default observer(({ navigation }: any) => {
                 }}
               >
                 <Text>{item.name}</Text>
-                <Text>{money(item.debet, false)}</Text>
+                <Text>{money(item.debet - item.kredit, false)}</Text>
               </TouchableOpacity>
             );
           })}
@@ -67,11 +69,12 @@ export default observer(({ navigation }: any) => {
           }}
         >
           <Text style={iOSUIKit.title3Emphasized}>Bank Account</Text>
-          <Text>{money(store.cbohList[1].debet, false)}</Text>
+          <Text>{money(store.cbohList[1].debet - store.cbohList[1].kredit , false)}</Text>
         </View>
         <View style={{ padding: 10 }}>
           {Object.keys(store.cbohList[1].childs).map((key: any, k: number) => {
             const item = store.cbohList[1].childs[key];
+            if (item.debet - item.kredit === 0) return null;
             return (
               <TouchableOpacity
                 key={k}
@@ -88,7 +91,7 @@ export default observer(({ navigation }: any) => {
                 }}
               >
                 <Text>{item.name}</Text>
-                <Text>{money(item.debet, false)}</Text>
+                <Text>{money(item.debet - item.kredit, false)}</Text>
               </TouchableOpacity>
             );
           })}

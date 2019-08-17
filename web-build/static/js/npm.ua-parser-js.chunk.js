@@ -1,7 +1,7 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[59],{211:
-/*!**********************************************************************************!*\
-  !*** /Volumes/Data/Projects/dashpier/node_modules/ua-parser-js/src/ua-parser.js ***!
-  \**********************************************************************************/
+(window.webpackJsonp=window.webpackJsonp||[]).push([[55],{211:
+/*!******************************************************************************!*\
+  !*** /home/riz/Projects/dashpier/node_modules/ua-parser-js/src/ua-parser.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /*! exports used: default */
 /*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(i,s,e){var o;

@@ -7,7 +7,7 @@ export default ({ navigation }: any) => {
     <View style={styles.container}>
       <Title navigation={navigation} />
     </View>
-  );
+  );  
 };
 
 const styles = StyleSheet.create({
