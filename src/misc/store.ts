@@ -82,7 +82,7 @@ export const actions = {
         return item.debet - item.kredit;
       }) || 0;
 
-    store.cboh.list = [this.find(cboh[0].toString()), this.find(cboh[0].toString())];
+    store.cboh.list = [this.find(cboh[0].toString()), this.find(cboh[1].toString())];
     store.cboh.total =
       _.sumBy(store.cboh.list, (item: any) => {
         return item.debet - item.kredit;

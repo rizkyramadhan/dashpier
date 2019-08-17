@@ -10,7 +10,7 @@ import { observer } from 'mobx-react-lite';
 export default observer(({ navigation }: any) => {
   return (
     <View style={styles.container}>
-      <Title navigation={navigation} text='Cash &amp; Bank on Hand' />
+      <Title navigation={navigation} text='Cash &amp; Bank' />
       <View style={{ paddingLeft: 50, paddingRight: 10, paddingBottom: 10 }}>
         <Text
           style={{

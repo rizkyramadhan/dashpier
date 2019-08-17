@@ -44,7 +44,7 @@ export default observer(({ navigation }: any) => {
           }}
           style={styles.itemContainer}
         >
-          <Text style={styles.itemTitle}>Cash &amp; Bank on Hand </Text>
+          <Text style={styles.itemTitle}>Cash &amp; Bank </Text>
           <Text style={styles.subTitle}>{money(store.cboh.total)}</Text>
         </TouchableOpacity>
 
