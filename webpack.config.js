@@ -1,14 +1,18 @@
 const createExpoWebpackConfigAsync = require('@expo/webpack-config');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const fs = require('fs');
 module.exports = async function(env, argv) {
   const config = await createExpoWebpackConfigAsync(env, argv);
   config.resolve.alias['victory-native$'] = 'victory';
-  
+
   config.entry = {
     app: [__dirname + '/node_modules/expo/AppEntry.js']
   };
 
-  return config;
+
+  if (process.env.npm_lifecycle_event !== 'build:web') {
+    return config;
+  }
 
   config.devServer = {};
   config.mode = 'production';

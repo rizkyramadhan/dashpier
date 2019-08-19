@@ -49,7 +49,7 @@ export default observer(({ navigation }: any) => {
             <Text
               style={{ color: color.blue, fontFamily: 'light', fontSize: 24 }}
             >
-              {money(store.cash.total, false)}
+              {money(store.bank.total, false)}
             </Text>
             <Text
               style={{ color: color.grey, fontSize: 13, fontFamily: 'bold' }}

@@ -94,7 +94,7 @@
 /*! exports provided: default */
 /*! all exports used */
 /*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/glyphmaps/MaterialIcons.json (<- Module is not an ECMAScript module) */
-/*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/@expo/vector-icons/build/createIconSet.js because of /home/riz/Projects/dashpier/src/pages/AP.tsx */
+/*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/@expo/vector-icons/build/createIconSet.js because of /home/riz/Projects/dashpier/src/pages/Cash.tsx */
 /*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/MaterialIcons.ttf (<- Module is not an ECMAScript module) */function(e,o,r){"use strict";r.r(o);var t=r(103),a=r(283),i=r.n(a),n=r(282),l=Object(t.a)(n,"material",i.a);o.default=l},492:
 /*!***********************************************************************************!*\
   !*** /home/riz/Projects/dashpier/node_modules/@expo/vector-icons/build/Entypo.js ***!
