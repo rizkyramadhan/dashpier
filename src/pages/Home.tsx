@@ -27,7 +27,7 @@ export default observer(({ navigation }: any) => {
   }, []);
 
   if (store.client.name && Platform.OS === 'web') {
-    (window as any).title = store.client.name;
+    (document as any).title = store.client.name;
   }
 
   if (Object.keys(store.list || {}).length === 0) {
