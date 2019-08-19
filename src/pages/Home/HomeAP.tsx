@@ -5,7 +5,7 @@ import { Text, View } from 'react-native';
 import Card from '../../components/Card';
 import store from '../../misc/store';
 import { color } from '../../misc/styles';
-import { money } from '../../misc/util';
+import { money, moneyFontSize } from '../../misc/util';
 
 export default observer(({ style, navigation }: any) => {
   return (
@@ -38,7 +38,7 @@ export default observer(({ style, navigation }: any) => {
           style={{
             color: color.orange,
             fontFamily: 'light',
-            fontSize: store.payb.total > 999999999 ? 19 : 24
+            fontSize: moneyFontSize(store.payb.total)
           }}
         >
           {money(store.payb.total, false)}

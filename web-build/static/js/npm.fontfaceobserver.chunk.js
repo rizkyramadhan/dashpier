@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[24],{277:
+(window.webpackJsonp=window.webpackJsonp||[]).push([[24],{276:
 /*!************************************************************************************************!*\
   !*** /home/riz/Projects/dashpier/node_modules/fontfaceobserver/fontfaceobserver.standalone.js ***!
   \************************************************************************************************/

@@ -5,7 +5,7 @@ import Card from '../../components/Card';
 import { color } from '../../misc/styles';
 import store from '../../misc/store';
 import { observer } from 'mobx-react-lite';
-import { money } from '../../misc/util';
+import { money, moneyFontSize } from '../../misc/util';
 
 const img = require('../../imgs/bg.png');
 export default observer(({ navigation }: any) => {
@@ -39,7 +39,11 @@ export default observer(({ navigation }: any) => {
           IDR
         </Text>
         <Text
-          style={{ color: color.purple, fontFamily: 'light', fontSize: store.cash.total > 999999999 ? 19 : 24 }}
+          style={{
+            color: color.purple,
+            fontFamily: 'light',
+            fontSize: moneyFontSize(store.cash.total)
+          }}
         >
           {money(store.cash.total, false)}
         </Text>

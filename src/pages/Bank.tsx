@@ -3,16 +3,16 @@ import _ from 'lodash';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { Text, View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import Body from '../components/Body';
 import Card from '../components/Card';
 import Title from '../components/Title';
 import store from '../misc/store';
-import { color, styles } from '../misc/styles';
+import { color } from '../misc/styles';
 import { money } from '../misc/util';
 
 export default observer(({ navigation }: any) => {
   return (
-    <ScrollView style={styles.body}>
+    <Body>
       <Title navigation={navigation} />
       <View
         style={{
@@ -62,7 +62,7 @@ export default observer(({ navigation }: any) => {
       <Text
         style={{
           fontFamily: 'light',
-          fontSize: 30,
+          fontSize: 24,
           color: color.grey,
           padding: 20
         }}
@@ -81,7 +81,8 @@ export default observer(({ navigation }: any) => {
               <View
                 style={{
                   flexDirection: 'row',
-                  justifyContent: 'space-between'
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap'
                 }}
               >
                 <Text>{item.name}</Text>
@@ -91,6 +92,6 @@ export default observer(({ navigation }: any) => {
           );
         })}
       </View>
-    </ScrollView>
+    </Body>
   );
 });

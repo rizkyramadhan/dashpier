@@ -5,7 +5,7 @@ import { Text, View } from 'react-native';
 import Card from '../../components/Card';
 import store from '../../misc/store';
 import { color } from '../../misc/styles';
-import { money } from '../../misc/util';
+import { money, moneyFontSize } from '../../misc/util';
 
 const img = require('../../imgs/bg2.png');
 export default observer(({ style, navigation }: any) => {
@@ -39,7 +39,7 @@ export default observer(({ style, navigation }: any) => {
           style={{
             color: color.blue,
             fontFamily: 'light',
-            fontSize: store.bank.total > 999999999 ? 19 : 24
+            fontSize: moneyFontSize(store.bank.total)
           }}
         >
           {money(store.bank.total, false)}

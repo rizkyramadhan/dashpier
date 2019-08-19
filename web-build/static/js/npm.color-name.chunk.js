@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{477:
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{475:
 /*!********************************************************************!*\
   !*** /home/riz/Projects/dashpier/node_modules/color-name/index.js ***!
   \********************************************************************/

@@ -1,5 +1,6 @@
 import React from 'react';
-import { ImageBackground, View, TouchableOpacity } from 'react-native';
+import { ImageBackground, View } from 'react-native';
+import TapLink from './TapLink';
 
 interface ICardProps {
   children?: any;
@@ -13,12 +14,12 @@ export default ({
   children,
   style,
   size = 'single',
-  bg,
+  bg, 
   onPress
 }: ICardProps) => {
   let flexBasis = '50%';
   let height: any = 280;
-  if (size === 'single-short') height = 'null';
+  if (size === 'single-short') height = null;
   if (size === 'double') flexBasis = '100%';
   if (size === 'double-short') {
     flexBasis = '100%';
@@ -31,7 +32,7 @@ export default ({
         flexBasis
       }}
     >
-      <TouchableOpacity
+      <TapLink
         onPress={onPress}
         style={[
           {
@@ -65,7 +66,7 @@ export default ({
             {children}
           </View>
         )}
-      </TouchableOpacity>
+      </TapLink>
     </View>
   );
 };

@@ -1,13 +1,12 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import Body from '../components/Body';
 import Title from '../components/Title';
-import { styles } from '../misc/styles';
 
 export default observer(({ navigation }: any) => {
   return (
-    <ScrollView style={styles.body}>
+    <Body>
       <Title />
       <View
         style={{
@@ -16,6 +15,6 @@ export default observer(({ navigation }: any) => {
           paddingTop: 0
         }}
       />
-    </ScrollView>
+    </Body>
   );
 });

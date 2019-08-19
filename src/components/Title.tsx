@@ -27,7 +27,12 @@ export default observer(({ navigation }: any) => {
     >
       {navigation && (
         <TouchableOpacity
-          style={{ marginBottom: 10, marginLeft: 5, marginRight: -10,padding:10 }}
+          style={{
+            marginBottom: 10,
+            marginLeft: 5,
+            marginRight: -15,
+            padding: 15,
+          }}
           onPress={() => {
             navigation.pop();
           }}
@@ -42,7 +47,7 @@ export default observer(({ navigation }: any) => {
           paddingTop: 45,
           alignItems: 'flex-start',
           paddingBottom: 60
-        }}
+        }} 
       >
         <Text style={{ fontFamily: 'light', fontSize: 25 }}>
           {store.client.name}
@@ -56,7 +61,7 @@ export default observer(({ navigation }: any) => {
           }}
           anchor={
             <TouchableOpacity
-              onPress={() => (meta.menuVisible = true)}
+              onPressIn={() => (meta.menuVisible = true)}
               style={{
                 borderWidth: 1,
                 borderColor: color.lightgrey,
@@ -65,6 +70,8 @@ export default observer(({ navigation }: any) => {
                 borderRadius: 4,
                 marginLeft: -5
               }}
+              delayPressIn={0}
+              delayPressOut={0}
             >
               <Text
                 style={{ fontFamily: 'bold', fontSize: 14, color: color.grey }}
@@ -78,7 +85,7 @@ export default observer(({ navigation }: any) => {
             onPress={() => {
               meta.menuVisible = false;
               store.org = '';
-              actions.reload();
+              setTimeout(() => actions.reload(), 100);
             }}
             title='All Organization'
           />
@@ -89,7 +96,7 @@ export default observer(({ navigation }: any) => {
                 onPress={() => {
                   meta.menuVisible = false;
                   store.org = item.id;
-                  actions.reload();
+                  setTimeout(() => actions.reload(), 100);
                 }}
                 key={key}
                 title={item.name}

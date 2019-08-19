@@ -33,19 +33,6 @@ export default observer(({ navigation }: any) => {
         </Text>
         <AntDesign name='tagso' size={18} color={color.black} />
       </View>
-      <View style={{ alignSelf: 'center', marginTop: 30 }}>
-        <Text style={{ color: color.purple, fontSize: 13, fontFamily: 'bold' }}>
-          IDR
-        </Text>
-        <Text
-          style={{ color: color.purple, fontFamily: 'light', fontSize: 24 }}
-        >
-          {money(store.cash.total, false)}
-        </Text>
-        <Text style={{ color: color.grey, fontSize: 13, fontFamily: 'bold' }}>
-          as of today
-        </Text>
-      </View>
     </Card>
   );
 });

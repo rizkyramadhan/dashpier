@@ -1,19 +1,16 @@
 import * as Font from 'expo-font';
-import _ from 'lodash';
 import { toJS } from 'mobx';
-import { observer, useObservable } from 'mobx-react-lite';
+import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import Card from '../components/Card';
-import store, { actions } from '../misc/store';
-import { styles } from '../misc/styles';
-import HomeBank from './Home/HomeBank';
-import HomeCash from './Home/HomeCash';
+import Body from '../components/Body';
 import Title from '../components/Title';
-import HomeStatement from './Home/HomeStatement';
+import store, { actions } from '../misc/store';
 import HomeAP from './Home/HomeAP';
 import HomeAR from './Home/HomeAR';
+import HomeBank from './Home/HomeBank';
+import HomeCash from './Home/HomeCash';
+import HomeStatement from './Home/HomeStatement';
 
 export default observer(({ navigation }: any) => {
   useEffect(() => {
@@ -31,14 +28,23 @@ export default observer(({ navigation }: any) => {
 
   if (Object.keys(store.list || {}).length === 0) {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <ActivityIndicator size='large' />
-      </View>
+      <Body>
+        <View
+          style={{
+            flex: 1,
+            margin: 50,
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          <ActivityIndicator size='large' />
+        </View>
+      </Body>
     );
   }
 
   return (
-    <ScrollView style={styles.body}>
+    <Body>
       <Title />
       <View
         style={{
@@ -50,6 +56,7 @@ export default observer(({ navigation }: any) => {
         <HomeCash navigation={navigation} />
         <HomeBank navigation={navigation} />
       </View>
+
       <View
         style={{
           flexDirection: 'row',
@@ -60,6 +67,7 @@ export default observer(({ navigation }: any) => {
         <HomeAP navigation={navigation} />
         <HomeAR navigation={navigation} />
       </View>
+      
       <View
         style={{
           flexDirection: 'row',
@@ -69,6 +77,6 @@ export default observer(({ navigation }: any) => {
       >
         <HomeStatement navigation={navigation} />
       </View>
-    </ScrollView>
+    </Body>
   );
 });

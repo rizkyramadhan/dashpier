@@ -20,11 +20,11 @@ const store = observable({
   },
   recv: {
     total: 0,
-    list: [] as any
+    list: {} as any
   },
   payb: {
     total: 0,
-    list: [] as any
+    list: {} as any
   },
   income: {
     rev: {
@@ -89,7 +89,6 @@ export const actions = {
     await api.get('/refresh');
     store.list = (await api.get('/get' + org)).body;
 
-
     // cash n bank
     const cboh = (await api.get('/cboh-id')).body;
 
@@ -104,13 +103,13 @@ export const actions = {
     store.bank.total = bank.debet - bank.kredit;
 
     // recv
-    store.recv.list = (await api.get('/ar')).body;
+    store.recv.list = (await api.get('/ar' + org)).body;
     store.recv.total = _.sumBy(store.recv.list, (item: any) => {
       return item.sum * 1;
     });
 
     // payb
-    store.payb.list = (await api.get('/ap')).body;
+    store.payb.list = (await api.get('/ap' + org)).body;
     store.payb.total = _.sumBy(store.payb.list, (item: any) => {
       return item.sum * 1;
     });
