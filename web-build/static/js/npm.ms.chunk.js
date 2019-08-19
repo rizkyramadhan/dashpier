@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[35],{365:
+(window.webpackJsonp=window.webpackJsonp||[]).push([[35],{367:
 /*!************************************************************!*\
   !*** /home/riz/Projects/dashpier/node_modules/ms/index.js ***!
   \************************************************************/

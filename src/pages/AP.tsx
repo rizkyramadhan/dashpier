@@ -1,4 +1,4 @@
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, FontAwesome } from '@expo/vector-icons';
 import _ from 'lodash';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
@@ -38,7 +38,7 @@ export default observer(({ navigation }: any) => {
             >
               Payable
             </Text>
-            <AntDesign name='menufold' size={18} color={color.black} />
+            <FontAwesome name='send-o' size={18} color={color.black} />
           </View>
           <View style={{ marginVertical: 10, marginLeft: 10 }}>
             <Text

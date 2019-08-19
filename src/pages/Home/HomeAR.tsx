@@ -28,7 +28,7 @@ export default observer(({ style, navigation }: any) => {
         >
           Receivable
         </Text>
-        <AntDesign name='menuunfold' size={18} color={color.black} />
+        <AntDesign name='clouddownloado' size={18} color={color.black} />
       </View>
       <View style={{ alignSelf: 'center', marginTop: 30 }}>
         <Text style={{ color: color.green, fontSize: 13, fontFamily: 'bold' }}>

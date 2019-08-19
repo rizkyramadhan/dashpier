@@ -4,13 +4,13 @@
   \***********************************************************/
 /*! no static exports found */
 /*! exports used: default */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(n,r,o){var t=o(/*! ./lib/rng */463),e=o(/*! ./lib/bytesToUuid */464);n.exports=function(n,r,o){var a=r&&o||0;"string"==typeof n&&(r="binary"===n?new Array(16):null,n=null);var i=(n=n||{}).random||(n.rng||t)();if(i[6]=15&i[6]|64,i[8]=63&i[8]|128,r)for(var u=0;u<16;++u)r[a+u]=i[u];return r||e(i)}},463:
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(n,r,o){var t=o(/*! ./lib/rng */465),e=o(/*! ./lib/bytesToUuid */466);n.exports=function(n,r,o){var a=r&&o||0;"string"==typeof n&&(r="binary"===n?new Array(16):null,n=null);var i=(n=n||{}).random||(n.rng||t)();if(i[6]=15&i[6]|64,i[8]=63&i[8]|128,r)for(var u=0;u<16;++u)r[a+u]=i[u];return r||e(i)}},465:
 /*!************************************************************************!*\
   !*** /home/riz/Projects/dashpier/node_modules/uuid/lib/rng-browser.js ***!
   \************************************************************************/
 /*! no static exports found */
 /*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(n,r){var o="undefined"!=typeof crypto&&crypto.getRandomValues&&crypto.getRandomValues.bind(crypto)||"undefined"!=typeof msCrypto&&"function"==typeof window.msCrypto.getRandomValues&&msCrypto.getRandomValues.bind(msCrypto);if(o){var t=new Uint8Array(16);n.exports=function(){return o(t),t}}else{var e=new Array(16);n.exports=function(){for(var n,r=0;r<16;r++)0==(3&r)&&(n=4294967296*Math.random()),e[r]=n>>>((3&r)<<3)&255;return e}}},464:
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(n,r){var o="undefined"!=typeof crypto&&crypto.getRandomValues&&crypto.getRandomValues.bind(crypto)||"undefined"!=typeof msCrypto&&"function"==typeof window.msCrypto.getRandomValues&&msCrypto.getRandomValues.bind(msCrypto);if(o){var t=new Uint8Array(16);n.exports=function(){return o(t),t}}else{var e=new Array(16);n.exports=function(){for(var n,r=0;r<16;r++)0==(3&r)&&(n=4294967296*Math.random()),e[r]=n>>>((3&r)<<3)&255;return e}}},466:
 /*!************************************************************************!*\
   !*** /home/riz/Projects/dashpier/node_modules/uuid/lib/bytesToUuid.js ***!
   \************************************************************************/
