@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[30],{92:
+(window.webpackJsonp=window.webpackJsonp||[]).push([[36],{98:
 /*!*****************************************************************************!*\
   !*** /home/riz/Projects/dashpier/node_modules/normalize-css-color/index.js ***!
   \*****************************************************************************/

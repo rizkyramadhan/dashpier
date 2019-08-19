@@ -3,10 +3,18 @@ import api from './api';
 import _ from 'lodash';
 
 const store = observable({
+  client: {
+    ad_client_id: '',
+    name: ''
+  },
   org: '',
   orglist: [] as any[],
   list: {} as any,
-  cboh: {
+  cash: {
+    total: 0,
+    list: [] as any[]
+  },
+  bank: {
     total: 0,
     list: [] as any[]
   },
@@ -14,7 +22,10 @@ const store = observable({
     total: 0,
     list: [] as any
   },
-  payb: 82500000,
+  payb: {
+    total: 0,
+    list: [] as any
+  },
   income: {
     rev: {
       year: 2950000000,
@@ -59,7 +70,7 @@ export const actions = {
     const found = find(id, toJS(store.list));
     if (found) {
       return JSON.parse(
-        JSON.stringify(found, function (key, value) {
+        JSON.stringify(found, function(key, value) {
           if (key === 'parent') return value.id;
           return value;
         })
@@ -68,24 +79,40 @@ export const actions = {
     return false;
   },
   async reload() {
-    const client_id = 30006;
-    const cboh = [30621, 30626];
+    // client
+    store.client = (await api.get('/client')).body[0];
 
+    // org
     const org: string = store.org ? `?org=${store.org}` : ``;
-    await api.get('/refresh?cid=' + client_id)
-
-    store.list = (await api.get('/get' + org)).body;
     store.orglist = (await api.get('/org')).body;
-    store.cboh.list = [this.find('30621'), this.find('30626')];
-    store.cboh.total =
-      _.sumBy(store.cboh.list, (item: any) => {
-        return item.debet - item.kredit;
-      }) || 0;
+    // coa
+    await api.get('/refresh');
+    store.list = (await api.get('/get' + org)).body;
 
-    store.cboh.list = [this.find(cboh[0].toString()), this.find(cboh[1].toString())];
-    store.cboh.total =
-      _.sumBy(store.cboh.list, (item: any) => {
-        return item.debet - item.kredit;
-      }) || 0;
+
+    // cash n bank
+    const cboh = (await api.get('/cboh-id')).body;
+
+    // cash
+    const cash = this.find(cboh[0].toString());
+    store.cash.list = cash.childs;
+    store.cash.total = cash.debet - cash.kredit;
+
+    // cash
+    const bank = this.find(cboh[1].toString());
+    store.bank.list = bank.childs;
+    store.bank.total = bank.debet - bank.kredit;
+
+    // recv
+    store.recv.list = (await api.get('/ar')).body;
+    store.recv.total = _.sumBy(store.recv.list, (item: any) => {
+      return item.sum * 1;
+    });
+
+    // payb
+    store.payb.list = (await api.get('/ap')).body;
+    store.payb.total = _.sumBy(store.payb.list, (item: any) => {
+      return item.sum * 1;
+    });
   }
 };

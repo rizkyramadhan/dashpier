@@ -1,3 +1,4 @@
+require("./init");
 const Frisbee = require('frisbee');
 
 export default new Frisbee({

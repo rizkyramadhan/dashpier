@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[23],{112:
+(window.webpackJsonp=window.webpackJsonp||[]).push([[28],{118:
 /*!******************************************************************************!*\
   !*** /home/riz/Projects/dashpier/node_modules/hyphenate-style-name/index.js ***!
   \******************************************************************************/
