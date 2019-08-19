@@ -38,7 +38,7 @@ export default observer(({ navigation }: any) => {
             >
               Receivable
             </Text>
-            <AntDesign name='menufold' size={18} color={color.black} />
+            <AntDesign name='menuunfold' size={18} color={color.black} />
           </View>
           <View style={{ marginVertical: 10, marginLeft: 10 }}>
             <Text

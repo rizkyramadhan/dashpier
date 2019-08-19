@@ -68,8 +68,8 @@ export default observer(({ navigation }: any) => {
           paddingTop: 0
         }}
       >
-        <HomeAP navigation={navigation} />
         <HomeAR navigation={navigation} />
+        <HomeAP navigation={navigation} />
       </View>
 
       <View
