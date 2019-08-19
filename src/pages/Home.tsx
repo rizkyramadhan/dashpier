@@ -2,7 +2,7 @@ import * as Font from 'expo-font';
 import { toJS } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, View, Platform } from 'react-native';
 import Body from '../components/Body';
 import Title from '../components/Title';
 import store, { actions } from '../misc/store';
@@ -25,6 +25,10 @@ export default observer(({ navigation }: any) => {
       black: require('../../assets/fonts/nunito/Nunito-Black.ttf')
     });
   }, []);
+
+  if (store.client.name && Platform.OS === 'web') {
+    (window as any).title = store.client.name;
+  }
 
   if (Object.keys(store.list || {}).length === 0) {
     return (
@@ -67,7 +71,7 @@ export default observer(({ navigation }: any) => {
         <HomeAP navigation={navigation} />
         <HomeAR navigation={navigation} />
       </View>
-      
+
       <View
         style={{
           flexDirection: 'row',
