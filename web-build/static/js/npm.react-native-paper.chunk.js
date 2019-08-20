@@ -67,7 +67,7 @@
 /*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/react-native-paper/src/components/Icon.js (<- Module uses injected variables (global)) */
 /*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/react-native-paper/src/components/Typography/Text.js because of /home/riz/Projects/dashpier/src/pages/Statement.tsx */
 /*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/react-native-paper/src/core/theming.js because of /home/riz/Projects/dashpier/src/pages/Statement.tsx */
-/*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/react-native-paper/src/styles/colors.js because of /home/riz/Projects/dashpier/node_modules/react-native-paper/src/components/Menu/Menu.js */
+/*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/react-native-paper/src/styles/colors.js because of /home/riz/Projects/dashpier/src/components/Title.tsx */
 /*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/react-native-web/dist/exports/StyleSheet/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/react-native-web/dist/exports/TouchableWithoutFeedback/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/react-native-web/dist/exports/View/index.js */

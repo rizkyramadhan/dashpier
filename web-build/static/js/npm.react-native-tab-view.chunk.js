@@ -15,7 +15,7 @@
 /*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/react-native-tab-view/src/PagerAndroid.web.js (<- Module is referenced from these modules with unsupported syntax: /home/riz/Projects/dashpier/node_modules/react-native-tab-view/src/PagerDefault.js (referenced with cjs require)) */
 /*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/react-native-tab-view/src/PagerPan.js (<- Module is referenced from these modules with unsupported syntax: /home/riz/Projects/dashpier/node_modules/react-native-tab-view/src/PagerDefault.js (referenced with cjs require)) */
 /*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/react-native-tab-view/src/PagerScroll.js (<- Module uses injected variables (global)) */
-/*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/react-native-tab-view/src/PropTypes.js because of /home/riz/Projects/dashpier/node_modules/react-native-tab-view/src/TabBar.js */
+/*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/react-native-tab-view/src/PropTypes.js because of /home/riz/Projects/dashpier/node_modules/react-native-tab-view/src/PagerScroll.js */
 /*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/react-native-tab-view/src/TabBar.js (<- Module uses injected variables (global)) */
 /*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/react-native-web/dist/exports/Animated/index.js */
 /*! ModuleConcatenation bailout: Cannot concat with /home/riz/Projects/dashpier/node_modules/react-native-web/dist/exports/Platform/index.js */

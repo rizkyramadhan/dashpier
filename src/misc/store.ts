@@ -120,14 +120,18 @@ export const actions = {
 
     // income statement
     store.is.rev.total = 0;
-    store.is.rev.list = (await api.get('/is?type=R')).body;
+    store.is.rev.list = (await api.get(
+      '/is?type=R' + org.replace('?', '&')
+    )).body;
     Object.keys(store.is.rev.list).forEach((key: any) => {
       const item = store.is.rev.list[key];
       store.is.rev.total += Math.abs(item.total);
     });
 
     store.is.exp.total = 0;
-    store.is.exp.list = (await api.get('/is?type=E')).body;
+    store.is.exp.list = (await api.get(
+      '/is?type=E' + org.replace('?', '&')
+    )).body;
     Object.keys(store.is.exp.list).forEach((key: any) => {
       const item = store.is.exp.list[key];
       store.is.exp.total += Math.abs(item.total);
