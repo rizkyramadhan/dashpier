@@ -1,7 +1,9 @@
-import { AntDesign, FontAwesome } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+import _ from 'lodash';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { Text, View } from 'react-native';
+import { VictoryPie } from 'victory';
 import Card from '../../components/Card';
 import store from '../../misc/store';
 import { color } from '../../misc/styles';
@@ -47,6 +49,14 @@ export default observer(({ style, navigation }: any) => {
           Open Bill
         </Text>
       </View>
+      <VictoryPie
+        data={_.values(store.payb.list).map((item: any, key: number) => ({
+          x: item.name,
+          y: item.sum * 1
+        }))}
+        colorScale="red"
+        innerRadius={100}
+      />
     </Card>
   );
 });

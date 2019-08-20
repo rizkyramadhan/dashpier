@@ -76,7 +76,12 @@ export default observer(({ navigation }: any) => {
         }}
       >
         {_.values(store.bank.list).map((item: any, key: number) => {
+          if (item.debet - item.kredit === 0) {
+            return null;
+          } 
+
           return (
+
             <Card size='double-short' key={key}>
               <View
                 style={{

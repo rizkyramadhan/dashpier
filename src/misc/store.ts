@@ -26,14 +26,18 @@ const store = observable({
     total: 0,
     list: {} as any
   },
-  income: {
+  is: {
     rev: {
-      year: 2950000000,
-      avgmth: 38400000
+      total: 0,
+      list: {
+        '0': { total: 0 }
+      } as any
     },
     exp: {
-      year: 1684000000,
-      avgmth: 24500000
+      total: 0,
+      list: {
+        '0': { total: 0 }
+      } as any
     }
   }
 });
@@ -112,6 +116,21 @@ export const actions = {
     store.payb.list = (await api.get('/ap' + org)).body;
     store.payb.total = _.sumBy(store.payb.list, (item: any) => {
       return item.sum * 1;
+    });
+
+    // income statement
+    store.is.rev.total = 0;
+    store.is.rev.list = (await api.get('/is?type=R')).body;
+    Object.keys(store.is.rev.list).forEach((key: any) => {
+      const item = store.is.rev.list[key];
+      store.is.rev.total += Math.abs(item.total);
+    });
+
+    store.is.exp.total = 0;
+    store.is.exp.list = (await api.get('/is?type=E')).body;
+    Object.keys(store.is.exp.list).forEach((key: any) => {
+      const item = store.is.exp.list[key];
+      store.is.exp.total += Math.abs(item.total);
     });
   }
 };

@@ -4,6 +4,7 @@ import Cash from './pages/Cash';
 import Bank from './pages/Bank';
 import AP from './pages/AP';
 import AR from './pages/AR';
+import Statement from './pages/Statement';
 
 const AppNavigator = createStackNavigator(
   {
@@ -12,6 +13,7 @@ const AppNavigator = createStackNavigator(
     Bank,
     AR,
     AP,
+    Statement,
   },
   {
     headerMode: 'none',

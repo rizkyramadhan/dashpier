@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer, useObservable } from 'mobx-react-lite';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 const noop = () => {};
 
 export default observer((p: any) => {
@@ -14,7 +14,7 @@ export default observer((p: any) => {
       onTouchEnd={() => {
         if (meta.tap && p.onPress) {
           p.onPress();
-          window.scrollTo({top:0});
+          window.scrollTo({ top: 0 });
         }
         meta.tap = false;
         meta.startedWithTap = true;
@@ -32,13 +32,13 @@ export default observer((p: any) => {
       onMouseUp={() => {
         if (meta.click && !meta.startedWithTap && p.onPress) {
           p.onPress();
-          window.scrollTo({top:0});
+          window.scrollTo({ top: 0 });
         }
         meta.click = false;
         meta.startedWithTap = false;
       }}
     >
-      <TouchableOpacity {...p} onPress={noop} />
+      {p.onPress ? <TouchableOpacity {...p} onPress={noop} /> : <View {...p} />}
     </div>
   );
 });

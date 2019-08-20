@@ -1,6 +1,6 @@
 import React from 'react';
 import { ImageBackground, View } from 'react-native';
-import TapLink from './TapLink';
+import Tappable from './Tappable';
 
 interface ICardProps {
   children?: any;
@@ -32,7 +32,7 @@ export default ({
         flexBasis
       }}
     >
-      <TapLink
+      <Tappable
         onPress={onPress}
         style={[
           {
@@ -66,7 +66,7 @@ export default ({
             {children}
           </View>
         )}
-      </TapLink>
+      </Tappable>
     </View>
   );
 };
