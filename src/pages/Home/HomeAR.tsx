@@ -50,11 +50,12 @@ export default observer(({ style, navigation }: any) => {
         </Text>
       </View>
       <VictoryPie
+        labels={(item: any) => ''}
         data={_.values(store.recv.list).map((item: any, key: number) => ({
           x: item.name,
           y: item.sum * 1
         }))}
-        colorScale="green"
+        colorScale='green'
         innerRadius={100}
       />
     </Card>
