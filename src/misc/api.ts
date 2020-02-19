@@ -2,7 +2,7 @@ require('./api-init');
 const Frisbee = require('frisbee');
 
 export default new Frisbee({
-  baseURI: 'https://dashpier.rx.plansys.co', // optional
+  baseURI: 'https://dashpier.web.andromedia.co.id/', // optional
   mode: 'cors',
   headers: {
     Accept: 'application/json',

@@ -74,7 +74,7 @@ export const actions = {
     const found = find(id, toJS(store.list));
     if (found) {
       return JSON.parse(
-        JSON.stringify(found, function(key, value) {
+        JSON.stringify(found, function (key, value) {
           if (key === 'parent') return value.id;
           return value;
         })
@@ -89,9 +89,13 @@ export const actions = {
     // org
     const org: string = store.org ? `?org=${store.org}` : ``;
     store.orglist = (await api.get('/org')).body;
+
+
     // coa
     await api.get('/refresh');
     store.list = (await api.get('/get' + org)).body;
+
+    console.log(toJS(store.list));
 
     // cash n bank
     const cboh = (await api.get('/cboh-id')).body;
