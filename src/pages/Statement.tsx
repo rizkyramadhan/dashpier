@@ -34,7 +34,8 @@ const monthNames = [
   'Dec'
 ];
 
-const year = new Date().getFullYear();
+// const year = new Date().getFullYear();
+const year = 2019;
 
 export default observer(({ navigation }: any) => {
   const all = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
